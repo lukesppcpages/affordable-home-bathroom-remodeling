@@ -408,6 +408,22 @@
 
   .section-cta { text-align: center; margin-top: 48px; }
 
+  /* ─── OPTIONS (bathroom remodeling services) ─── */
+  section.options-section { padding: 0 0 80px; }
+  .options-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .option-card {
+    flex: 0 1 calc((100% - 80px) / 5);
+    background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
+    padding: 26px 20px; text-align: center; box-shadow: var(--shadow-card);
+  }
+  .option-icon {
+    width: 50px; height: 50px; border-radius: 12px;
+    background: linear-gradient(160deg, #3D5A94 0%, #2F4679 60%, #1F3159 100%); color: #FFFFFF;
+    display: grid; place-items: center; margin: 0 auto 16px;
+  }
+  .option-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .option-card p { font-size: 13px; color: var(--stone); line-height: 1.6; }
+
   /* ─── STEPS (dark, numbered) ─── */
   .steps-section { background: #2F4679; }
   .steps-head { text-align: center; margin-bottom: 56px; }
@@ -520,6 +536,7 @@
     .hero-headline { max-width: 100%; }
     .hero-form { max-width: 480px; margin: 0 auto; }
     .adv-grid { grid-template-columns: 1fr; gap: 32px; }
+    .option-card { flex-basis: calc((100% - 40px) / 3); }
     .steps-grid { grid-template-columns: 1fr; gap: 36px; }
     .step-item:not(:last-child)::after { content: none; }
     .value-rows { display: flex; flex-direction: column; gap: 48px; }
@@ -535,6 +552,9 @@
 
   @media (max-width: 640px) {
     section.section { padding: 60px 0; }
+    section.options-section { padding: 0 0 56px; }
+    .options-grid { gap: 14px; }
+    .option-card { flex-basis: calc((100% - 14px) / 2); padding: 22px 14px; }
     .header-inner { padding: 0 18px; justify-content: center; }
     .header-logo img { height: 30px; }
     .wrap { padding: 0 18px; }
@@ -824,6 +844,49 @@
     </div>
 
     <a href="#top" class="btn btn-orange btn-quote value-full-cta">See offers near me</a>
+  </div>
+</section>
+
+<!-- ─── BATHROOM OPTIONS ─── -->
+<section class="section options-section" id="options">
+  <div class="wrap">
+    <div class="options-grid">
+      <div class="option-card">
+        <div class="option-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3z"/><path d="M4 12V6a2 2 0 0 1 2-2h1"/><path d="M9 6v2"/><path d="M2 19h20"/></svg>
+        </div>
+        <h3>Bathrooms</h3>
+        <p>Full remodels, top to bottom.</p>
+      </div>
+      <div class="option-card">
+        <div class="option-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V6a4 4 0 0 1 8 0"/><circle cx="10" cy="4" r="1"/><path d="M4 9h14"/><path d="M8 13v.01M12 13v.01M16 13v.01M9 17v.01M13 17v.01M17 17v.01"/></svg>
+        </div>
+        <h3>Showers</h3>
+        <p>New shower systems &amp; surrounds.</p>
+      </div>
+      <div class="option-card">
+        <div class="option-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h3>Tub to Shower Conversion</h3>
+        <p>Swap an old tub for a walk-in shower.</p>
+      </div>
+      <div class="option-card">
+        <div class="option-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="2"/><path d="M7 9V7a2 2 0 0 1 2-2h1"/><path d="M11 14a2 2 0 1 0 4 0"/></svg>
+        </div>
+        <h3>Walk-In Tubs</h3>
+        <p>Low step-in, built-in safety seating.</p>
+      </div>
+      <div class="option-card">
+        <div class="option-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+        </div>
+        <h3>Walk-In Showers</h3>
+        <p>Barrier-free, no-curb entry.</p>
+      </div>
+    </div>
   </div>
 </section>
 
