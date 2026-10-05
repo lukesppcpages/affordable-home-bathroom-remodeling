@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You | Affordable Home</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #2F4679;
+    --orange: #FE6C34;
+    --ink: #1E2530;
+    --paper: #FFFFFF;
+    --line: #E2E5EA;
+    --font: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body { font-family: var(--font); color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .site-header { background: rgba(255,255,255,.92); border-bottom: 1px solid var(--line); }
+  .header-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; justify-content: center; }
+  .header-logo img { height: 30px; width: auto; }
+
+  .hero {
+    position: relative;
+    min-height: 74vh;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.7) 45%, rgba(0,0,0,.84) 100%), url('assets/hero-bg-v2.avif') center / cover no-repeat;
+    text-align: center;
+  }
+  .hero-inner { max-width: 680px; margin: 0 auto; padding: 72px 24px; color: var(--paper); }
+
+  .ty-icon {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: var(--orange);
+    display: grid; place-items: center;
+    margin: 0 auto 26px;
+  }
+
+  .hero-headline { font-size: clamp(28px, 4.4vw, 46px); font-weight: 700; line-height: 1.12; color: var(--paper); margin-bottom: 16px; }
+  .hero-sub { font-size: 18px; color: rgba(255,255,255,.88); max-width: 520px; margin: 0 auto 36px; line-height: 1.5; }
+
+  .next-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; }
+  .next-step { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 12px; padding: 18px 18px 20px; }
+  .next-step .n {
+    width: 32px; height: 32px; border-radius: 50%; background: var(--orange); color: #FFFFFF;
+    display: grid; place-items: center; font-weight: 800; font-size: 15px; margin-bottom: 10px;
+  }
+  .next-step p { font-size: 13.5px; color: rgba(255,255,255,.85); line-height: 1.55; }
+
+  footer { background: var(--navy); color: rgba(255,255,255,.6); padding: 36px 24px 28px; text-align: center; }
+  .footer-logo { height: 24px; opacity: .95; margin: 0 auto 16px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-size: 13px; margin-bottom: 18px; }
+  .footer-links a { text-decoration: none; color: rgba(255,255,255,.65); }
+  .footer-links a:hover { color: var(--paper); }
+  .footer-copy { font-size: 12.5px; }
+
+  @media (max-width: 880px) {
+    .header-inner { height: 64px; }
+  }
+  @media (max-width: 640px) {
+    .header-inner { padding: 0 18px; }
+    .header-logo img { height: 30px; }
+    .hero-inner { padding: 52px 20px; }
+    .hero-sub { font-size: 16px; }
+    .next-steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="index-v2.html" aria-label="Affordable Home">
+      <img src="assets/logo.svg" alt="Affordable Home" />
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="ty-icon" aria-hidden="true">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1 class="hero-headline">Thank You — Your Free Estimate Request Is On Its Way</h1>
+    <p class="hero-sub">A local, licensed Affordable Home pro will reach out shortly to confirm your free estimate and lock in your savings on labor.</p>
+
+    <div class="next-steps">
+      <div class="next-step">
+        <div class="n">1</div>
+        <p>We match your project with a certified local installer in your area.</p>
+      </div>
+      <div class="next-step">
+        <div class="n">2</div>
+        <p>Expect a call or text shortly to schedule your free, no-obligation estimate.</p>
+      </div>
+      <div class="next-step">
+        <div class="n">3</div>
+        <p>Get an exact price on the spot, with up to 70% off labor applied where eligible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="https://affordablehome.com/" target="_blank" rel="noopener"><img class="footer-logo" src="assets/logo-white.svg" alt="Affordable Home" /></a>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Accessibility</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Affordable Home. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
