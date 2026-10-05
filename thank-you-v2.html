@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Thank You | Affordable Home</title>
+<title>Matching You With a Local Pro | Affordable Home</title>
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,112 +12,160 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
+    --bg: #F7F5F0;
     --navy: #2F4679;
     --orange: #FE6C34;
+    --orange-dim: #B24C24;
     --ink: #1E2530;
-    --paper: #FFFFFF;
-    --line: #E2E5EA;
+    --stone: #5B6472;
+    --line: #E2DED5;
     --font: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
-  body { font-family: var(--font); color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-  img, svg { max-width: 100%; display: block; }
-  a { color: inherit; }
+  body { font-family: var(--font); color: var(--ink); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+  img { max-width: 100%; display: block; }
 
-  .site-header { background: rgba(255,255,255,.92); border-bottom: 1px solid var(--line); }
-  .header-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 76px; display: flex; align-items: center; justify-content: center; }
-  .header-logo img { height: 30px; width: auto; }
+  .site-header { padding: 28px 24px 0; display: flex; justify-content: center; }
+  .site-header img { height: 30px; width: auto; }
 
-  .hero {
-    position: relative;
-    min-height: 74vh;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(180deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.7) 45%, rgba(0,0,0,.84) 100%), url('assets/hero-bg-v2.avif') center / cover no-repeat;
-    text-align: center;
+  main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 48px 24px; }
+  .stage { width: 100%; max-width: 480px; text-align: center; }
+  [hidden] { display: none !important; }
+
+  h1 { font-size: clamp(26px, 5vw, 34px); font-weight: 800; line-height: 1.15; color: #000; margin-bottom: 12px; }
+  .sub { font-size: 16.5px; color: var(--stone); }
+
+  /* Matching state */
+  .spinner {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 5px solid #E4DFD3; border-top-color: var(--orange);
+    margin: 0 auto 28px;
+    animation: spin .9s linear infinite;
   }
-  .hero-inner { max-width: 680px; margin: 0 auto; padding: 72px 24px; color: var(--paper); }
+  @keyframes spin { to { transform: rotate(360deg); } }
 
-  .ty-icon {
-    width: 76px; height: 76px; border-radius: 50%;
-    background: var(--orange);
-    display: grid; place-items: center;
-    margin: 0 auto 26px;
+  /* Matched state */
+  .check {
+    width: 64px; height: 64px; border-radius: 50%; background: var(--orange);
+    display: grid; place-items: center; margin: 0 auto 22px;
+    animation: pop .35s ease;
   }
-
-  .hero-headline { font-size: clamp(28px, 4.4vw, 46px); font-weight: 700; line-height: 1.12; color: var(--paper); margin-bottom: 16px; }
-  .hero-sub { font-size: 18px; color: rgba(255,255,255,.88); max-width: 520px; margin: 0 auto 36px; line-height: 1.5; }
-
-  .next-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; }
-  .next-step { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); border-radius: 12px; padding: 18px 18px 20px; }
-  .next-step .n {
-    width: 32px; height: 32px; border-radius: 50%; background: var(--orange); color: #FFFFFF;
-    display: grid; place-items: center; font-weight: 800; font-size: 15px; margin-bottom: 10px;
+  @keyframes pop { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .match-card {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 24px; margin: 28px 0 0;
   }
-  .next-step p { font-size: 13.5px; color: rgba(255,255,255,.85); line-height: 1.55; }
-
-  footer { background: var(--navy); color: rgba(255,255,255,.6); padding: 36px 24px 28px; text-align: center; }
-  .footer-logo { height: 24px; opacity: .95; margin: 0 auto 16px; }
-  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; font-size: 13px; margin-bottom: 18px; }
-  .footer-links a { text-decoration: none; color: rgba(255,255,255,.65); }
-  .footer-links a:hover { color: var(--paper); }
-  .footer-copy { font-size: 12.5px; }
-
-  @media (max-width: 880px) {
-    .header-inner { height: 64px; }
+  .match-label { font-size: 12.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
+  .match-logo { max-height: 56px; width: auto; margin: 0 auto 12px; }
+  .match-name { font-size: 26px; font-weight: 800; color: #000; line-height: 1.2; }
+  .match-note { font-size: 15.5px; color: var(--stone); margin-top: 10px; }
+  .match-call {
+    display: inline-block; margin-top: 20px; padding: 14px 28px; border-radius: 8px;
+    background: var(--orange); color: #FFFFFF; font-weight: 800; font-size: 15px;
+    letter-spacing: .02em; text-transform: uppercase; text-decoration: none;
   }
-  @media (max-width: 640px) {
-    .header-inner { padding: 0 18px; }
-    .header-logo img { height: 30px; }
-    .hero-inner { padding: 52px 20px; }
-    .hero-sub { font-size: 16px; }
-    .next-steps { grid-template-columns: 1fr; }
-  }
+  .match-call:hover { background: var(--orange-dim); }
+
+  footer { padding: 24px; text-align: center; font-size: 12.5px; color: #8A8577; }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="header-inner">
-    <a class="header-logo" href="index-v2.html" aria-label="Affordable Home">
-      <img src="assets/logo.svg" alt="Affordable Home" />
-    </a>
-  </div>
+  <img src="assets/logo.svg" alt="Affordable Home" />
 </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="ty-icon" aria-hidden="true">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-    </div>
-    <h1 class="hero-headline">Thank You — Your Free Estimate Request Is On Its Way</h1>
-    <p class="hero-sub">A local, licensed Affordable Home pro will reach out shortly to confirm your free estimate and lock in your savings on labor.</p>
+<main>
+  <div class="stage" aria-live="polite">
 
-    <div class="next-steps">
-      <div class="next-step">
-        <div class="n">1</div>
-        <p>We match your project with a certified local installer in your area.</p>
+    <div class="state" id="state-matching">
+      <div class="spinner" aria-hidden="true"></div>
+      <h1>We're matching you in <span style="white-space:nowrap">real-time...</span></h1>
+      <p class="sub" id="matching-sub">Finding the best local pro in your area.</p>
+    </div>
+
+    <div class="state" id="state-matched" hidden>
+      <div class="check" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
-      <div class="next-step">
-        <div class="n">2</div>
-        <p>Expect a call or text shortly to schedule your free, no-obligation estimate.</p>
-      </div>
-      <div class="next-step">
-        <div class="n">3</div>
-        <p>Get an exact price on the spot, with up to 70% off labor applied where eligible.</p>
+      <h1>You're matched!</h1>
+      <p class="sub" id="matched-sub"></p>
+
+      <div class="match-card">
+        <p class="match-label">Your local pro</p>
+        <img class="match-logo" id="match-logo" alt="" hidden />
+        <p class="match-name" id="match-name"></p>
+        <p class="match-note" id="match-note"></p>
+        <a class="match-call" id="match-call" href="#" hidden></a>
       </div>
     </div>
-  </div>
-</section>
 
-<footer>
-  <a href="https://affordablehome.com/" target="_blank" rel="noopener"><img class="footer-logo" src="assets/logo-white.svg" alt="Affordable Home" /></a>
-  <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Service</a>
-    <a href="#">Accessibility</a>
   </div>
-  <p class="footer-copy">&copy; 2026 Affordable Home. All rights reserved.</p>
-</footer>
+</main>
+
+<footer>&copy; 2026 Affordable Home. All rights reserved.</footer>
+
+<script>
+  // ─── MATCH CONFIG ───────────────────────────────────────────────
+  // To use your own server: set MATCH_ENDPOINT. The page will call
+  //   GET {MATCH_ENDPOINT}?zip=90210&first_name=...&(all form fields)
+  // and expects JSON like:
+  //   { "name": "Company Name", "logo": "https://.../logo.png", "phone": "(555) 123-4567" }
+  // "logo" and "phone" are optional. If the call fails or times out,
+  // DEFAULT_MATCH is shown instead.
+  var MATCH_ENDPOINT = '';
+  var MATCH_TIMEOUT_MS = 8000;
+  var MIN_MATCHING_MS = 3000;
+
+  var DEFAULT_MATCH = {
+    name: 'A Licensed Local Pro',
+    logo: '',
+    phone: ''
+  };
+  // ────────────────────────────────────────────────────────────────
+
+  var params = new URLSearchParams(window.location.search);
+  var zip = (params.get('zip') || '').replace(/\D/g, '').slice(0, 5);
+
+  function $(id) { return document.getElementById(id); }
+
+  function fetchMatch() {
+    if (!MATCH_ENDPOINT) return Promise.resolve(DEFAULT_MATCH);
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, MATCH_TIMEOUT_MS);
+    return fetch(MATCH_ENDPOINT + '?' + params.toString(), { signal: ctrl.signal })
+      .then(function (r) { if (!r.ok) throw new Error('bad status'); return r.json(); })
+      .then(function (data) { return data && data.name ? data : DEFAULT_MATCH; })
+      .catch(function () { return DEFAULT_MATCH; })
+      .then(function (m) { clearTimeout(timer); return m; });
+  }
+
+  function renderMatch(m) {
+    $('match-name').textContent = m.name;
+    $('matched-sub').textContent = 'We found a licensed pro for you' + (zip ? ' in ' + zip : '') + '.';
+    $('match-note').textContent = m.name + ' will contact you shortly to schedule your free, no-obligation estimate.';
+
+    var logo = $('match-logo');
+    if (m.logo) { logo.src = m.logo; logo.alt = m.name; logo.hidden = false; } else { logo.hidden = true; }
+
+    var call = $('match-call');
+    if (m.phone) {
+      call.href = 'tel:' + m.phone.replace(/[^\d+]/g, '');
+      call.textContent = 'Call ' + m.phone;
+      call.hidden = false;
+    } else {
+      call.hidden = true;
+    }
+
+    $('state-matching').hidden = true;
+    $('state-matched').hidden = false;
+  }
+
+  if (zip) $('matching-sub').textContent = 'Finding the best local pro for ' + zip + '.';
+
+  var minDelay = new Promise(function (resolve) { setTimeout(resolve, MIN_MATCHING_MS); });
+  Promise.all([fetchMatch(), minDelay]).then(function (results) { renderMatch(results[0]); });
+</script>
 
 </body>
 </html>
