@@ -55,8 +55,7 @@
     background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px;
     padding: 28px 24px; margin: 28px 0 0;
   }
-  .match-label { font-size: 12.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
-  .match-logo { max-height: 56px; width: auto; margin: 0 auto 12px; }
+  .match-logo { max-height: 52px; max-width: 200px; width: auto; margin: 0 auto 18px; }
   .match-name { font-size: 26px; font-weight: 800; color: #000; line-height: 1.2; }
   .match-note { font-size: 15.5px; color: var(--stone); margin-top: 10px; }
   .match-call {
@@ -92,7 +91,6 @@
       <p class="sub" id="matched-sub"></p>
 
       <div class="match-card">
-        <p class="match-label">Your local pro</p>
         <img class="match-logo" id="match-logo" alt="" hidden />
         <p class="match-name" id="match-name"></p>
         <p class="match-note" id="match-note"></p>
@@ -111,15 +109,16 @@
   //   GET {MATCH_ENDPOINT}?zip=90210&first_name=...&(all form fields)
   // and expects JSON like:
   //   { "name": "Company Name", "logo": "https://.../logo.png", "phone": "(555) 123-4567" }
-  // "logo" and "phone" are optional. If the call fails or times out,
+  // "logo" and "phone" are optional. The logo shows at the top of the match card;
+  // use a full-color logo (the page background is off-white). If the call fails or times out,
   // DEFAULT_MATCH is shown instead.
   var MATCH_ENDPOINT = '';
   var MATCH_TIMEOUT_MS = 8000;
   var MIN_MATCHING_MS = 3000;
 
   var DEFAULT_MATCH = {
-    name: 'A Licensed Local Pro',
-    logo: '',
+    name: 'Renuity',
+    logo: 'assets/logos-v3/renuity.svg',
     phone: ''
   };
   // ────────────────────────────────────────────────────────────────
