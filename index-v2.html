@@ -395,10 +395,11 @@
   .section-head.center .section-title, .section-head.center .section-lead { margin-left: auto; margin-right: auto; }
 
   /* ─── ADVANTAGES ─── */
-  .standards { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .standards { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
   .standards-media { border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-card); aspect-ratio: 4 / 3; }
   .standards-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .standards .section-title { max-width: none; margin-bottom: 24px; }
+  @media (min-width: 981px) { .standards .section-title { font-size: clamp(26px, 3vw, 36px); white-space: nowrap; } }
   .standards-list { list-style: none; display: grid; gap: 20px; }
   .standards-list li { position: relative; padding-left: 44px; font-size: 22px; font-weight: 700; color: #000000; line-height: 1.35; }
   .standards-list li::before {
@@ -727,7 +728,7 @@
   <div class="wrap">
     <div class="standards">
       <div class="standards-copy">
-        <h2 class="section-title"><span class="line-bold">Done Right</span><br /><span class="line-light">From Start to Finish</span></h2>
+        <h2 class="section-title"><span class="line-bold">Done Right From Start to Finish</span></h2>
         <ul class="standards-list">
           <li>Licensed &amp; Insured Pros</li>
           <li>Lifetime Warranty</li>
