@@ -410,16 +410,26 @@
   .section-cta { text-align: center; margin-top: 48px; }
 
   /* ─── COVERAGE CARDS (remodel options) ─── */
-  .cover-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-  .cover-card {
-    flex: 0 1 calc((100% - 80px) / 5);
-    background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
-    overflow: hidden; box-shadow: var(--shadow-card);
+  section.section-warm { background: #F7F5F0; padding: 76px 0; }
+  .wrap-wide { max-width: 1320px; }
+  .cover-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-auto-rows: 300px; gap: 24px;
   }
-  .cover-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
-  .cover-body { padding: 18px 16px 22px; text-align: center; }
-  .cover-card h3 { font-size: 17px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; }
-  .cover-card p { font-size: 13.5px; color: var(--stone); line-height: 1.55; }
+  .cover-card {
+    display: flex; flex-direction: column;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; box-shadow: 0 1px 2px rgba(16,25,41,.04), 0 8px 22px rgba(16,25,41,.06);
+  }
+  .cover-card.is-featured { grid-row: span 2; }
+  .cover-card img { flex: 1 1 0; min-height: 0; width: 100%; object-fit: cover; display: block; }
+  .cover-body { flex: none; padding: 16px 20px 20px; }
+  .cover-card h3 { font-size: 19px; font-weight: 700; line-height: 1.3; margin-bottom: 4px; }
+  .cover-card p { font-size: 14.5px; color: var(--stone); line-height: 1.5; }
+  .cover-card.is-featured .cover-body { padding: 22px 26px 26px; }
+  .cover-card.is-featured h3 { font-size: 26px; margin-bottom: 6px; }
+  .cover-card.is-featured p { font-size: 16.5px; }
+  .btn-quote.cover-cta { margin-top: 44px; }
+  @media (min-width: 981px) { .btn-quote.cover-cta { display: inline-flex; width: auto; white-space: nowrap; font-size: 16px; padding: 18px 32px; } }
 
   /* ─── STEPS (dark, numbered) ─── */
   .steps-section { background: #2F4679; }
@@ -456,10 +466,10 @@
 
 
   /* ─── VALUE PROPS (alternating rows) ─── */
-  .value-head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
-  .value-head .section-title { max-width: 100%; margin-left: auto; margin-right: auto; }
+  .value-head { max-width: 980px; margin: 0 auto 40px; text-align: center; }
+  .value-head .section-title { max-width: 100%; margin-left: auto; margin-right: auto; margin-bottom: 12px; }
+  .value-head .section-lead { max-width: 720px; margin: 0 auto; }
 
-  .value-full-cta { margin-top: 48px; }
 
   .section-title .line-bold { font-weight: 800; }
   .section-title .line-light { font-weight: 400; }
@@ -511,7 +521,10 @@
     .hero-form { max-width: 480px; margin: 0 auto; }
     .standards { grid-template-columns: 1fr; gap: 32px; }
     .standards-media { max-width: 560px; margin: 0 auto; width: 100%; }
-    .cover-card { flex-basis: calc((100% - 40px) / 3); }
+    .cover-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: auto; gap: 18px; }
+    .cover-card.is-featured { grid-column: 1 / -1; grid-row: auto; }
+    .cover-card img { flex: none; aspect-ratio: 4 / 3; }
+    .cover-card.is-featured img { aspect-ratio: 16 / 10; }
     .steps-grid { grid-template-columns: 1fr; gap: 36px; }
     .step-item:not(:last-child)::after { content: none; }
     .testi-grid { grid-template-columns: 1fr; }
@@ -520,9 +533,14 @@
   @media (max-width: 640px) {
     .standards-list li { font-size: 19px; }
     section.section { padding: 60px 0; }
-    .cover-grid { gap: 14px; }
-    .cover-card { flex-basis: calc((100% - 14px) / 2); }
-    .cover-body { padding: 14px 12px 18px; }
+    section.section-warm { padding: 52px 0; }
+    .cover-grid { gap: 12px; }
+    .cover-body { padding: 12px 12px 16px; }
+    .cover-card h3 { font-size: 16px; }
+    .cover-card p { font-size: 13px; }
+    .cover-card.is-featured .cover-body { padding: 16px 16px 20px; }
+    .cover-card.is-featured h3 { font-size: 22px; }
+    .cover-card.is-featured p { font-size: 14.5px; }
     .header-inner { padding: 0 18px; justify-content: center; }
     .header-logo img { height: 30px; }
     .wrap { padding: 0 18px; }
@@ -711,51 +729,54 @@
 </section>
 
 <!-- ─── WHY CHOOSE US ─── -->
-<section class="section section-alt" id="options">
-  <div class="wrap">
+<section class="section section-warm" id="options">
+  <div class="wrap wrap-wide">
     <div class="value-head">
-      <h2 class="section-title"><span class="line-bold">Whatever Your Need, We've Got You Covered</span></h2>
+      <h2 class="section-title"><span class="line-bold">Find the Right Upgrade for Your Bathroom</span></h2>
+      <p class="section-lead">From simple shower upgrades to complete remodels, explore options for your home.</p>
     </div>
 
     <div class="cover-grid">
-      <div class="cover-card">
+      <div class="cover-card is-featured">
         <img src="assets/cover-bathrooms.jpg" alt="Remodeled bathroom with a glass walk-in shower and wood vanity" loading="lazy" />
         <div class="cover-body">
-          <h3>Full Bathrooms</h3>
-          <p>Full remodels, top to bottom.</p>
+          <h3>Bathroom Remodels</h3>
+          <p>Complete bathroom transformations.</p>
         </div>
       </div>
       <div class="cover-card">
         <img src="assets/value-1-shower-tub.webp" alt="Glass-enclosed walk-in shower" loading="lazy" />
         <div class="cover-body">
-          <h3>Showers</h3>
-          <p>New shower systems &amp; surrounds.</p>
+          <h3>New Showers</h3>
+          <p>Upgrade your shower and surround.</p>
         </div>
       </div>
       <div class="cover-card">
         <img src="assets/cover-tub-to-shower.jpg" alt="New shower base and marble-look walls replacing an old tub" loading="lazy" />
         <div class="cover-body">
-          <h3>Tub to Shower Conversion</h3>
-          <p>Swap an old tub for a walk-in shower.</p>
+          <h3>Tub-to-Shower</h3>
+          <p>Replace your tub with a walk-in shower.</p>
         </div>
       </div>
       <div class="cover-card">
         <img src="assets/cover-walk-in-tub.jpg" alt="Walk-in tub with a built-in seat and glass splash panel" loading="lazy" />
         <div class="cover-body">
           <h3>Walk-In Tubs</h3>
-          <p>Low step-in, built-in safety seating.</p>
+          <p>Safer, easier bathing at home.</p>
         </div>
       </div>
       <div class="cover-card">
         <img src="assets/cover-walk-in-showers.jpg" alt="Barrier-free walk-in shower in a modern bathroom" loading="lazy" />
         <div class="cover-body">
           <h3>Walk-In Showers</h3>
-          <p>Barrier-free, no-curb entry.</p>
+          <p>Low-step, barrier-free shower options.</p>
         </div>
       </div>
     </div>
 
-    <a href="#top" class="btn btn-orange btn-quote value-full-cta">See offers near me</a>
+    <div class="section-cta" style="margin-top:0">
+      <a href="#top" class="btn btn-orange btn-quote cover-cta">See Local Bathroom Offers &rarr;</a>
+    </div>
   </div>
 </section>
 
